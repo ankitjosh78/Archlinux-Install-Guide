@@ -41,11 +41,11 @@
    - vim /etc/hostname (and type  hostname)
    - vim /etc/hosts
       ### Text:
-        127.0.0.1 <Tab> localhost
+        127.0.0.1   localhost
     
-        ::1 <Tab>  <Tab>localhost
+        ::1         localhost
         
-        127.0.1.1 <Tab> hostname.localdomain    hostname
+        127.0.1.1   hostname.localdomain    hostname
 
 ## Set Password
    - passwd (for the root user)
