@@ -1,77 +1,79 @@
-Check Internet via 
+## Check Internet via 
     - ip link
     - ping
 
-Set time
+## Set time
     - timedatectl set-ntp true
 
-Partition Disks and Formatting
-    - cfdisk (For BIOS mode) [partitioning]
+## Partition Disks and Formatting
+    ### cfdisk (For BIOS mode) [partitioning]
         - Delete Previous Partitions
         - First Partition xGB(x:amount of ram of system) [Primary] Type: Linux Swap 
         - Second Parition (rest of the memory) [Primary] [Bootable] Type: Linux(Default)
 
-    - mkfs (formatting the file system) 
+    ### mkfs (formatting the file system) 
         - mkfs.ext4 /dev/sda2(for full system)
         - mkswap /dev/sda1 (for swap)
         - swapon (for activating swap)
 
-Mounting Filesystem
+## Mounting Filesystem
     - mount /dev/sda2 /mnt
 
-Install Base System
+## Install Base System
     - pacstrap /mnt base linux linux-firmware
 
-Configure System
+## Configure System
     - genfstab -U /mnt >> /mnt/etc/fstab
 
-Arch Chroot
+## Arch Chroot
     - arch-chroot /mnt
     (Now you can use pacman to install vim)
 
-Set Time
+## Set Time
     - ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
     - hwclock --systohc
 
-Set Locale
+## Set Locale
     - locale-gen
     - Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed locales.
 
-Network Configuration
+## Network Configuration
     - vim /etc/hostname (and type  hostname)
-    - vim /etc/hosts 
+    - vim /etc/hosts
+        ### Text:
         127.0.0.1	localhost
         ::1		localhost
         127.0.1.1	myhostname.localdomain	myhostname
 
-Set Password
+## Set Password
     - passwd (for the root user)
 
-Useful Packages to install:
+## Useful Packages to install:
     - pacman -S vim dhcpcd sudo git cryptsetup device-mapper dhcpcd diffutils e2fsprogs inetutils jfsutils less linux linux-firmware logrotate lvm2 man-db man-pages mdadm nano netctl perl reiserfsprogs s-nail sysfsutils texinfo usbutils vi which xfsprogs 
 
-Advanced Network Configuration
-    - pacman -S dhcpcd ( after install systemctl enable dhcpcd)
+## Advanced Network Configuration
+    - pacman -S dhcpcd
+    - systemctl enable dhcpcd
 
-Adding Users and Groups
-    - Making User
+## Adding Users and Groups
+    ### Making User
         - useradd -m userName
         - passwd userName (to make password for the user)
-    - Adding to Group
+    ### Adding to Group
         - usermod -aG wheel,audio,video,optical,storage userName
         - visudo (Uncomment line "%wheel ALL=(ALL) ALL"
 
-Install Bootloader(GRUB)
+## Install Bootloader(GRUB)
     - pacman -S grub
     - grub-install --target=i386-pc /dev/sda
     - grub-mkconfig -o  /boot/grub/grub.cfg
 
-Shutdown and restart
+## Shutdown and restart
     - shutdown now
 
-You should have a working archlinux terminal only install!
+### You should have a working archlinux terminal only install!
 
-For building the system (with dwm as window manager and xinit as login manager) ->
+## For building the system (with dwm as window manager and xinit as login manager) ->
     - sudo pacman -S base-devel xf86-video-fbdev xorg xorg-xinit nitrogen picom alacritty firefox ( X server and other useful applications)
     - git clone https://aur.archlinux.org/paru-git.git
         - cd paru-git/
@@ -83,7 +85,7 @@ For building the system (with dwm as window manager and xinit as login manager) 
     - git clone https://github.com/ankitjosh78/wallpapers
     - git clone https://github.com/ankitjosh78/dwm-bar
     - paru -S nerd-fonts-jetbrains-mono ttf-jetbrains-mono volumeicon libxft-bgra-git font-manager
-    - curl -fsSL https://starship.rs/install.sh | bash
-Start System
+    - curl -fsSL https://starship.rs/install.sh | bash (starship shell prompt)
+## Start System
     - startx
 
