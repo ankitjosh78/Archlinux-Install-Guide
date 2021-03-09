@@ -40,7 +40,7 @@
 ## Network Configuration
    - vim /etc/hostname (and type  hostname)
    - vim /etc/hosts
-   ### Text:
+      ### Text:
         127.0.0.1	localhost
         ::1		    localhost
         127.0.1.1	hostname.localdomain    hostname
