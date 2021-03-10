@@ -68,7 +68,7 @@
 ## Install Bootloader(GRUB)
    - pacman -S grub
    - grub-install --target=i386-pc /dev/sda
-   - grub-mkconfig -o  /boot/grub/grub.cfg
+   - grub-mkconfig -o /boot/grub/grub.cfg
 
 ## Shutdown and restart
    - shutdown now
@@ -82,7 +82,12 @@
        - makepkg -si
    - git clone https://github.com/ankitjosh78/nvim
    - git clone https://github.com/ankitjosh78/dwm
+      -  cd dwm/
+      -  rm -rf autostart.sh (Remove autostart.sh as we are going to use .xinitrc . I use autostart.sh as I now use LightDM instead of .xinitrc)
+      -  sudo make clean install
    - git clone https://github.com/ankitjosh78/st
+      -  cd st/
+      -  sudo make clean install
    - git clone https://github.com/ankitjosh78/dotfiles (copy .xinitrc and .bashrc)
    - git clone https://github.com/ankitjosh78/wallpapers
    - git clone https://github.com/ankitjosh78/dwm-bar
