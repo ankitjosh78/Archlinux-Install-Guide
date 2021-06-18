@@ -3,4 +3,4 @@ A simple step by step command guide for archlinux install that works for me(and 
 
 I'm uploading it here as a backup.
 
-## Just follow the commands in the [guide](wiki.md) and if you are not sure about something , look it up in the arch wiki.
+## Just follow the commands in the [guide](guide.md) and if you are not sure about something , look it up in the arch wiki.
