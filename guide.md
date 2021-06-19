@@ -75,7 +75,7 @@
 
 ### You should have a working archlinux terminal only install!
 
-## For building the system (with dwm as window manager and xinit as login manager) ->
+## For building the GUI system (with dwm as window manager and xinit as login manager) ->
    - sudo pacman -S base-devel xf86-video-fbdev xorg xorg-xinit nitrogen picom alacritty firefox ( X server and other useful applications)
    - git clone https://aur.archlinux.org/paru-git.git
        - cd paru-git/
