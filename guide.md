@@ -6,8 +6,8 @@
    - timedatectl set-ntp true
 
 ## Partition Disks and Formatting
-   ### Type "cfdisk" (For BIOS mode select dos table) [partitioning]
-   - Delete Previous Partitions
+   ### Type "cfdisk" (For BIOS mode) [partitioning]
+   - Select "dos" as Table Type / Delete Previous Partitions
    - First Partition xGB(x:amount of ram of system) [Primary] Type: Linux Swap 
    - Second Parition (rest of the memory) [Primary] [Bootable] Type: Linux(Default)
 
@@ -41,11 +41,11 @@
    - vim /etc/hostname (and type  hostname)
    - vim /etc/hosts
       ### Text:
-        127.0.0.1   localhost
+        127.0.0.1 <tab> localhost
     
-        ::1         localhost
+        ::1 <tab> localhost
         
-        127.0.1.1   hostname.localdomain    hostname
+        127.0.1.1 <tab> hostname.localdomain <tab> hostname
 
 ## Set Password
    - passwd (for the root user)
