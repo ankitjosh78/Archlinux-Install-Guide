@@ -6,12 +6,12 @@
    - timedatectl set-ntp true
 
 ## Partition Disks and Formatting
-   ### cfdisk (For BIOS mode) [partitioning]
+   ### Type "cfdisk" (For BIOS mode select dos table) [partitioning]
    - Delete Previous Partitions
    - First Partition xGB(x:amount of ram of system) [Primary] Type: Linux Swap 
    - Second Parition (rest of the memory) [Primary] [Bootable] Type: Linux(Default)
 
-   ### mkfs (formatting the file system) 
+   ### Formatting the file system 
    - mkfs.ext4 /dev/sda2(for full system)
    - mkswap /dev/sda1 (for swap)
    - swapon (for activating swap)
