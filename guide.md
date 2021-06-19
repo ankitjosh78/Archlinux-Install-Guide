@@ -74,6 +74,10 @@
    - shutdown now
 
 ### You should have a working archlinux terminal only install!
+### If you want you can leave your system here and just use the minimal installation.
+### But I'm going to install a GUI on it. I'm going to install a window manager(dwm)
+### If you have other preferences such as installing another WM or DE (GNOME, KDE, XFCE), feel free to do so.
+### Just look up some tutorials from internet or refer to the arch wiki.
 
 ## For building the GUI system (with dwm as window manager and xinit as login manager) ->
    - sudo pacman -S base-devel xf86-video-fbdev xorg xorg-xinit nitrogen picom alacritty firefox ( X server and other useful applications)
