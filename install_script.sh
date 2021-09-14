@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Caution: Don't run this script on a functioning system.
 echo "Setting timezone"
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 hwclock --systohc
