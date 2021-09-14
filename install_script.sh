@@ -14,7 +14,7 @@ echo "127.0.1.1       $hostname.localdomain $hostname" >> /etc/hosts
 echo "Enter password for root user"
 passwd
 echo "We are going to install some useful packages now"
-sleep 2s
+sleep 3s
 pacman --noconfirm -S vim dhcpcd sudo git cryptsetup device-mapper dhcpcd diffutils e2fsprogs inetutils jfsutils less linux linux-firmware logrotate lvm2 man-db man-pages mdadm nano netctl perl reiserfsprogs s-nail sysfsutils texinfo usbutils vi which xfsprogs noto-fonts-emoji noto-fonts ttf-joypixels ttf-jetbrains-mono networkmanager 
 systemctl enable dhcpcd
 systemctl enable NetworkManager
@@ -30,6 +30,7 @@ echo "Installing bootloader"
 pacman --noconfirm -S grub
 grub-install --target-i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
+echo ""
 echo "Congratulations you have succesfully installed Archlinux"
 echo ""
 echo "You can now reboot or continue to install other things or keep using the system"
