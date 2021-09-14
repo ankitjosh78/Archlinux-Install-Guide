@@ -73,7 +73,7 @@
 ## Shutdown and restart
    - shutdown now
 
-### You should have a working archlinux terminal only install!
+### You should now have a working archlinux terminal only install!
 ### If you want you can leave your system here and just use the minimal installation.
 ### But I'm going to install a GUI on it. I'm going to install a window manager(dwm)
 ### If you have other preferences such as installing another WM or DE, feel free to do so.
