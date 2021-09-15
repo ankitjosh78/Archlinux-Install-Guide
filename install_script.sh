@@ -45,7 +45,7 @@ usermod -aG wheel,audio,video,optical,storage $username
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 echo "Installing bootloader"
 pacman --noconfirm -S grub
-grub-install --target-i386-pc /dev/sda
+grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 rm /install_script_2.sh
 echo ""
