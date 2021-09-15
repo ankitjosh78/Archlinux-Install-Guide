@@ -10,7 +10,6 @@ mkfs.ext4 /dev/sda
 mount /dev/sda /mnt
 pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
 
 sed '1,/^#part2$/d' install_script.sh > /mnt/install_script_2.sh
 chmod +x /mnt/install_script_2.sh
