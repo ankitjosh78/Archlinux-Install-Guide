@@ -106,16 +106,22 @@
 
 ## For those who want to install a DE:
 ### For GNOME:
+   sudo pacman -S xorg xorg-server
+   
    sudo pacman -S gnome
    
    sudo systemctl enable --now gdm.service
 
 ### For KDE:
+   sudo pacman -S xorg xorg-server
+   
    sudo pacman -S plasma kde-applications ssdm
    
    sudo systemctl enable --now sddm
 
 ### For XFCE:
+   sudo pacman -S xorg xorg-server
+   
    sudo pacman -S xfce4 xfce4-goodies
    
    
