@@ -1,6 +1,23 @@
 #!/bin/bash
 
 #Caution: Don't run this script on a functioning system.
+#part1
+pacman --noconfirm -Sy archlinux-keyring
+loadkeys us
+timedatectl set-ntp true
+cfdisk /dev/sda
+mkfs.ext4 /dev/sda
+mount /dev/sda /mnt
+pacstrap /mnt base linux linux-firmware
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+
+sed '1,/^#part2$/d' install_script.sh > /mnt/install_script_2.sh
+chmod +x /mnt/install_script_2.sh
+arch-chroot /mnt ./install_script_2.sh
+exit
+
+#part2
 echo "Setting timezone"
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 hwclock --systohc
@@ -31,6 +48,7 @@ echo "Installing bootloader"
 pacman --noconfirm -S grub
 grub-install --target-i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
+rm /install_script_2.sh
 echo ""
 echo "Congratulations you have succesfully installed Archlinux"
 echo ""
