@@ -5,9 +5,13 @@
 pacman --noconfirm -Sy archlinux-keyring
 loadkeys us
 timedatectl set-ntp true
-cfdisk /dev/sda
-mkfs.ext4 /dev/sda
-mount /dev/sda /mnt
+echo "Enter the drive:"
+read drive
+cfdisk $drive
+echo "Enter the Linux partition:"
+read partition
+mkfs.ext4 $partition
+mount $partition /mnt
 pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
 
