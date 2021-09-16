@@ -52,7 +52,11 @@ passwd $username
 usermod -aG wheel,audio,video,optical,storage $username
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 echo "Installing bootloader"
+sleep 1s
 pacman --noconfirm -S grub
+echo "Enter the drive(not the partition) on which you installed this Linux system:"
+read drive
+sleep 1s
 grub-install --target=i386-pc $drive
 grub-mkconfig -o /boot/grub/grub.cfg
 echo ""
