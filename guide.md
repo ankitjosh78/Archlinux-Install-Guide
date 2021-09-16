@@ -90,7 +90,6 @@
    - git clone https://github.com/ankitjosh78/nvim
    - git clone https://github.com/ankitjosh78/dwm
       -  cd dwm/
-      -  rm -rf autostart.sh (Remove autostart.sh as we are going to use .xinitrc . I use autostart.sh as I now use LightDM instead of .xinitrc)
       -  sudo make clean install
    - git clone https://github.com/ankitjosh78/st
       -  cd st/
