@@ -40,10 +40,11 @@ echo "Enter password for root user"
 passwd
 echo "We are going to install some useful packages now"
 sleep 3s
-pacman --noconfirm -S vim dhcpcd sudo git cryptsetup device-mapper dhcpcd diffutils e2fsprogs inetutils jfsutils less logrotate lvm2 man-db man-pages mdadm nano netctl perl reiserfsprogs s-nail sysfsutils texinfo usbutils vi which xfsprogs networkmanager 
+pacman --noconfirm -S vim dhcpcd sudo git cryptsetup device-mapper dhcpcd diffutils e2fsprogs inetutils jfsutils less logrotate lvm2 man-db man-pages mdadm nano netctl perl reiserfsprogs s-nail sysfsutils texinfo usbutils vi which xfsprogs networkmanager net-tools
 systemctl enable dhcpcd
 systemctl enable NetworkManager
 echo "We are going to make a user now."
+sleep 1s
 echo "Enter username:"
 read username
 useradd -m $username
@@ -63,4 +64,4 @@ echo ""
 echo "Congratulations you have succesfully installed Archlinux"
 echo ""
 echo "You can now reboot or continue to install other things or keep using the system"
-
+rm /install_script_2.sh
