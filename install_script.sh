@@ -11,6 +11,10 @@ cfdisk $drive
 echo "Enter the Linux partition:"
 read partition
 mkfs.ext4 $partition
+echo "Enter the Swap partition:"
+read swap
+mkswap $swap
+swapon
 mount $partition /mnt
 pacstrap /mnt base linux linux-firmware
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -36,7 +40,7 @@ echo "Enter password for root user"
 passwd
 echo "We are going to install some useful packages now"
 sleep 3s
-pacman --noconfirm -S vim dhcpcd sudo git cryptsetup device-mapper dhcpcd diffutils e2fsprogs inetutils jfsutils less linux linux-firmware logrotate lvm2 man-db man-pages mdadm nano netctl perl reiserfsprogs s-nail sysfsutils texinfo usbutils vi which xfsprogs noto-fonts-emoji noto-fonts ttf-joypixels ttf-jetbrains-mono networkmanager 
+pacman --noconfirm -S vim dhcpcd sudo git cryptsetup device-mapper dhcpcd diffutils e2fsprogs inetutils jfsutils less logrotate lvm2 man-db man-pages mdadm nano netctl perl reiserfsprogs s-nail sysfsutils texinfo usbutils vi which xfsprogs networkmanager 
 systemctl enable dhcpcd
 systemctl enable NetworkManager
 echo "We are going to make a user now."
@@ -49,9 +53,8 @@ usermod -aG wheel,audio,video,optical,storage $username
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 echo "Installing bootloader"
 pacman --noconfirm -S grub
-grub-install --target=i386-pc /dev/sda
+grub-install --target=i386-pc $drive
 grub-mkconfig -o /boot/grub/grub.cfg
-rm /install_script_2.sh
 echo ""
 echo "Congratulations you have succesfully installed Archlinux"
 echo ""
