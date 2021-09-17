@@ -43,7 +43,7 @@ echo " password for root user"
 passwd
 echo "We are going to install some useful packages now"
 sleep 3s
-pacman --noconfirm -S vim dhcpcd sudo git cryptsetup device-mapper dhcpcd diffutils e2fsprogs inetutils jfsutils less logrotate lvm2 man-db man-pages mdadm nano netctl perl reiserfsprogs s-nail sysfsutils texinfo usbutils vi which xfsprogs networkmanager net-tools
+pacman --noconfirm -S vim dhcpcd sudo git cryptsetup device-mapper dhcpcd diffutils e2fsprogs inetutils jfsutils less logrotate lvm2 man-db man-pages mdadm nano netctl perl reiserfsprogs s-nail sysfsutils texinfo usbutils vi which xfsprogs networkmanager net-tools base-devel
 systemctl enable dhcpcd
 systemctl enable NetworkManager
 echo "We are going to make a user now."
