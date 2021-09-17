@@ -29,15 +29,17 @@ echo "Setting timezone"
 sleep 1s
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 hwclock --systohc
-locale-gen
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "KEYMAP=us" > /etc/vconsole.conf
 echo "Enter your hostname:"
 read $yourHost
 echo $yourHost > /etc/hostname
 echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
 echo "127.0.1.1       $yourHost.localdomain     $yourHost" >> /etc/hosts
-echo "Enter password for root user"
+echo " password for root user"
 passwd
 echo "We are going to install some useful packages now"
 sleep 3s
@@ -55,7 +57,7 @@ usermod -aG wheel,audio,video,optical,storage $username
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 echo "Installing bootloader"
 sleep 1s
-pacman --noconfirm -S grub
+pacman --noconfirm -S grub os-prober
 echo "Enter the drive(not the partition) on which you installed this Linux system:"
 read drive
 sleep 1s
