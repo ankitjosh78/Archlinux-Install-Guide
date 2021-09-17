@@ -26,12 +26,14 @@ exit
 
 #part2
 echo "Setting timezone"
+sleep 1s
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 hwclock --systohc
 locale-gen
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 echo "Enter your hostname:"
 read $hostname
+echo $hostname > /etc/hostname
 echo $hostname > /etc/hosts
 echo "127.0.0.1       localhost" >> /etc/hosts
 echo "::1             localhost" >> /etc/hosts
