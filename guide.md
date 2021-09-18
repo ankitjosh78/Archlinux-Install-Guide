@@ -33,10 +33,11 @@
    - ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
    - hwclock --systohc
 
-## Set Locale
+## Set Locale and Language
    - locale-gen
-   - Edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8 and other needed locales.
-
+   - Edit /etc/locale.gen and uncomment "en_US.UTF-8 UTF-8" and other needed locales.
+   - Edit /etc/locale.conf and write "LANG=en_US.UTF-8"
+   - Edit /etc/vconsole.conf and write "KEYMAP=us"
 ## Network Configuration
    - vim /etc/hostname (and type  hostname)
    - vim /etc/hosts
@@ -51,7 +52,7 @@
    - passwd (for the root user)
 
 ## Useful Packages to install:
-   - pacman -S vim dhcpcd sudo git cryptsetup device-mapper dhcpcd diffutils e2fsprogs inetutils jfsutils less linux linux-firmware logrotate lvm2 man-db man-pages mdadm nano netctl perl reiserfsprogs s-nail sysfsutils texinfo usbutils vi which xfsprogs 
+   - pacman -S vim dhcpcd sudo git cryptsetup device-mapper dhcpcd diffutils e2fsprogs inetutils jfsutils less linux linux-firmware logrotate lvm2 man-db man-pages mdadm nano netctl perl reiserfsprogs s-nail sysfsutils texinfo usbutils vi which xfsprogs base-devel
 
 ## Advanced Network Configuration
    - pacman -S dhcpcd
@@ -97,7 +98,7 @@
    - git clone https://github.com/ankitjosh78/dotfiles (copy .xinitrc and .bashrc)
    - git clone https://github.com/ankitjosh78/wallpapers
    - git clone https://github.com/ankitjosh78/dwm-bar
-   - paru -S nerd-fonts-jetbrains-mono ttf-jetbrains-mono volumeicon libxft-bgra-git font-manager
+   - paru -S nerd-fonts-jetbrains-mono ttf-jetbrains-mono volumeicon libxft-bgra-git font-manager brave-bin lxappearance 
    - curl -fsSL https://starship.rs/install.sh | bash (starship shell prompt)
 ## Start System
    - startx
@@ -109,7 +110,7 @@
    
    sudo pacman -S gnome
    
-   sudo systemctl enable --now gdm.service
+   sudo systemctl enable --now gdm
 
 ### For KDE:
    sudo pacman -S xorg xorg-server
